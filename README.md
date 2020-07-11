@@ -1,4 +1,5 @@
 <a href="https://sourceforge.net/projects/http-injector-plus/files/latest/download"><img alt="Download respite HTTP Injector +" src="https://img.shields.io/sourceforge/dw/http-injector-plus.svg" ></a>
+<br/>
 Download latest .jar file: https://sourceforge.net/projects/http-injector-plus/files/latest/download
 
 # respite HTTP injector
