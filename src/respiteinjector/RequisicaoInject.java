@@ -95,7 +95,8 @@ public class RequisicaoInject implements Runnable, Loggable {
                     }
                     else 
                     {
-                    new GlobalVars().logThis("[INJ] Status line: " + statusLine+" sending a HTTP/1.0 200 OK", -1);
+                    new GlobalVars().logThis("[INJ] Status line: " + statusLine, -1);
+                    new GlobalVars().logThis("[INJ] Sending HTTP/1.0 200 OK", 0);
                     }
                 } catch (Exception ex2) {
                     new GlobalVars().logThis("[INJ] Status line: " + statusLine, 1);

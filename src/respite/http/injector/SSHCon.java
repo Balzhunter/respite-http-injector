@@ -71,13 +71,12 @@ public class SSHCon {
             try {
                 dpf = conexao.createDynamicPortForwarder(socksPort);
             } catch (IOException e2) {
-
                 new GlobalVars().logThis("[SSH] Failed creating SOCKS forwarder on port " + String.valueOf(socksPort),-1);
+                new GlobalVars().logThis("[SSH] Error " + e2.getMessage(),-1);
                 this.conexao.close();
                 return;
             }
         }
         new GlobalVars().logThis("[SSH] Success! SOCKS Forwarder opened on port " + String.valueOf(socksPort) + " of 127.0.0.1",2);
-
     }
 }

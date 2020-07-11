@@ -192,9 +192,7 @@ public class MainForm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(12, 218, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -204,6 +202,8 @@ public class MainForm extends javax.swing.JFrame {
                         .addComponent(jTextField1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -217,7 +217,9 @@ public class MainForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -225,15 +227,13 @@ public class MainForm extends javax.swing.JFrame {
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jButton1)
                 .addContainerGap())
         );
 
         jLabel1.getAccessibleContext().setAccessibleName("");
 
-        jTabbedPane1.addTab("      Home      ", jPanel1);
+        jTabbedPane1.addTab("           Home           ", jPanel1);
 
         jTextField2.setText("22");
         jTextField2.setToolTipText("");
@@ -509,7 +509,9 @@ public class MainForm extends javax.swing.JFrame {
                 .replace("[cr]", "\r")
                 .replace("[method]", payG.GetMethod())
                 .replace("[protocol]", "HTTP/1.0")
-                .replace("[crlf]", "\r\n");
+                .replace("[crlf]", "\r\n")
+                .replace("\\n", "\n")
+                .replace("\\r", "\r");
     }
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
 
@@ -546,7 +548,10 @@ public class MainForm extends javax.swing.JFrame {
         try {
             if (!isConnected) {
                 Log("> Clicked Connect", 0);
-                VerifyPayload();
+                try {
+                    VerifyPayload();
+                } catch (Exception exx) {
+                }
                 injector = new Injector(mainForm.jTextField6.getText(), Integer.parseInt(mainForm.jTextField7.getText()), mainForm.jTextField1.getText().split(":")[0], Integer.parseInt(mainForm.jTextField1.getText().split(":")[1])) {
                     public void onLogReceived(String log, int level, Exception e) {
                         System.out.print(log);
@@ -599,6 +604,7 @@ public class MainForm extends javax.swing.JFrame {
                 }).start();
 
             }
+            mainForm.jLabel16.setVisible(isConnected);
             isConnected = !isConnected;        // TODO add your handling code here:
         } catch (java.lang.ArrayIndexOutOfBoundsException ex) {
             JOptionPane.showMessageDialog(this,
@@ -665,13 +671,20 @@ public class MainForm extends javax.swing.JFrame {
                             + "> Links:\n"
                             + "\tKeybase: keybase.io/ranamgi\n"
                             + "\tYoutube: www.youtube.com/channel/UCTtA84Gb2StiefbZfCx9i6A/\n"
+                            + "\tGitHub: github.com/Alizer55/respite-http-injector\n"
                             + "> How to use: \n"
                             + "After setting up your SSH Settings and payload set the proxy option of your applications to the Local SSH Forwarding interface as SOCKSv5 to redirect all requests to this application.\n"
                             + "> Free SSH Hosting Services: \n"
                             + "\twww.tcpvpn.com - Recommended\n"
                             + "\tfastssh.com\n"
                             + "\tsshstores.net");
-                    Log("Respite HTTP Injector started " + ZonedDateTime.now().format(DateTimeFormatter.RFC_1123_DATE_TIME), 1);
+                    try {
+                        Log("Respite HTTP Injector started " + ZonedDateTime.now().format(DateTimeFormatter.RFC_1123_DATE_TIME)
+                                + "\nOS Name: " + System.getProperty("os.name")
+                                + " JRE: " + System.getProperty("java.version") + " " + System.getProperty("os.arch"), 1);
+                    } catch (Exception ex) {
+                        JOptionPane.showMessageDialog(null, ex.toString(), "An error occured.", JOptionPane.ERROR_MESSAGE);
+                    }
                     Log("Press Ctrl A then Ctrl C to copy this log.", 3);
                     ShowPayload(false);
                     try {
