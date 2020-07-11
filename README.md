@@ -8,7 +8,7 @@ After a successful connect you may need to change the proxy settings of your bro
 
 ---
 Contact Me:
-<img align="left" src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Keybase_logo_official.svg" width='25'>&nbsp;: Ranamgi
+<img align="left" src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Keybase_logo_official.svg" width='25'/>&nbsp;: Ranamgi
  https://keybase.io/ranamgi
-<img align="left" src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" width='25'>&nbsp;: Alizer
+<img align="left" src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" width='25'/>&nbsp;: Alizer
 https://www.youtube.com/channel/UCTtA84Gb2StiefbZfCx9i6A?view_as=subscriber
