@@ -1,6 +1,8 @@
+<a href="https://sourceforge.net/projects/http-injector-plus/files/latest/download"><img alt="Download respite HTTP Injector +" src="https://img.shields.io/sourceforge/dd/http-injector-plus.svg" ></a>
+
 To download the latest runnable .jar file: https://sourceforge.net/projects/http-injector-plus/files/latest/download
 # respite HTTP injector
-a powerful but simple tool to modify HTTP Proxy CONNECT requests and response to bypass ISP censorship and firewalls.
+a powerful but simple tool to modify HTTP Proxy CONNECT requests and response to bypass ISP censorship and firewalls, purely coded in Java.
 Free to use but comes with no warranty.
 
 After a successful connect you may need to change the proxy settings of your browsers.
