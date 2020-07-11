@@ -7,7 +7,7 @@ After a successful connect you may need to change the proxy settings of your bro
 ![Proxy Setup](http://alizersepicbasement.7m.pl/img/2020-07-10%2023-06-53.00_00_17_22.Still001.jpg)
 
 ---
-Contact Me:
+Contact Me:<br/>
 <img align="left" src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Keybase_logo_official.svg" width='25'/>&nbsp;: Ranamgi
  https://keybase.io/ranamgi<br/>
 <img align="left" src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" width='25'/>&nbsp;: Alizer
