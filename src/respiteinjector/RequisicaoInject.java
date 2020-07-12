@@ -78,13 +78,12 @@ public class RequisicaoInject implements Runnable, Loggable {
                 reqCliente.setPayload(payload);
                 new GlobalVars().logThis("[INJ] Opening proxy communication.");
 
-                hostDest.writeStreamSplited(reqCliente.getStrRequisicao(), "\\[split\\]");
+                hostDest.writeStreamSplited(reqCliente.getStrRequisicao(), "[split]");
 
                 int bodyLen;
                 if ((bodyLen = getContentLength(reqCliente)) > 0) {
                     hostDest.writeStreamQtdBytes(hostCliente.getIn(), bodyLen, 4096);
                 }
-
                 String respostaDestino = hostDest.getHttpHead();
                 String statusLine = respostaDestino.substring(0, respostaDestino.indexOf('\r'));
                 try {
@@ -122,7 +121,7 @@ public class RequisicaoInject implements Runnable, Loggable {
                 if (connect == null) {
                     hostDest.close();
                     hostCliente.close();
-                    new GlobalVars().logThis("[INJ] Connection just died...", -1);
+                    new GlobalVars().logThis("[INJ] Connection died.", -1);
 
                 }
             }

@@ -12,7 +12,7 @@ import java.util.Hashtable;
  * @author user
  */
 public class SavedData {
-    public double Version = 2020.2;
+    public double Version = 2020.3;
     public String Payload = "CONNECT [host_port] HTTP/1.1[crlf][crlf]";
     public String Proxy = "";
     public String SSH_Host = "";

@@ -92,7 +92,6 @@ public class MainForm extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jLabel16 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jTextField2 = new javax.swing.JTextField();
@@ -122,6 +121,8 @@ public class MainForm extends javax.swing.JFrame {
         jTextPane2 = new javax.swing.JTextPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -169,9 +170,6 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
-        jLabel16.setText("IP Address:");
-        jLabel16.setToolTipText("");
-
         jButton3.setText("View Parsed");
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -191,20 +189,18 @@ public class MainForm extends javax.swing.JFrame {
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(12, 218, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextField1)))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -217,18 +213,16 @@ public class MainForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jButton3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
-                .addContainerGap())
+                .addGap(12, 12, 12))
         );
 
         jLabel1.getAccessibleContext().setAccessibleName("");
@@ -446,6 +440,12 @@ public class MainForm extends javax.swing.JFrame {
 
         jMenu2.setText("File");
 
+        jMenuItem5.setText("Open Config");
+        jMenu2.add(jMenuItem5);
+
+        jMenuItem6.setText("Export Config");
+        jMenu2.add(jMenuItem6);
+
         jMenuItem3.setText("Exit");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -534,7 +534,7 @@ public class MainForm extends javax.swing.JFrame {
         if (!ShowingRealPayload) {
             SaveData();
             mainForm.jButton3.setText("View Placeholders");
-            mainForm.jTextPane1.setText(ParsePayload(mainForm.jTextPane1.getText()) + "\n----END OF HTTP HEADERS----\n// This will be sent to the HTTP Proxy.");
+            mainForm.jTextPane1.setText(ParsePayload(mainForm.jTextPane1.getText()) + "\n----END OF HTTP HEADERS----");
 
         } else {
             mainForm.jButton3.setText("View Parsed");
@@ -557,12 +557,9 @@ public class MainForm extends javax.swing.JFrame {
                         System.out.print(log);
                     }
                 };
-                // Log("[ProxyInjector] is " + mainForm.jTextField6.getText() +":" + mainForm.jTextField7.getText(), 3);
-                // if (mainForm.jCheckBox1.isSelected()) Log("[SSH] is " + mainForm.jTextField3.getText() +":" + mainForm.jTextField2.getText(), 3);
                 jButton1.setForeground(new java.awt.Color(255, 102, 102));
                 mainForm.jButton1.setText("Disconnect");
                 injector.setPayload(ParsePayload(mainForm.jTextPane1.getText()));
-
                 InjectorThread = new Thread(injector);
                 InjectorThread.start();
                 mainForm.jTabbedPane1.setSelectedIndex(2);
@@ -604,7 +601,6 @@ public class MainForm extends javax.swing.JFrame {
                 }).start();
 
             }
-            mainForm.jLabel16.setVisible(isConnected);
             isConnected = !isConnected;        // TODO add your handling code here:
         } catch (java.lang.ArrayIndexOutOfBoundsException ex) {
             JOptionPane.showMessageDialog(this,
@@ -883,29 +879,29 @@ public class MainForm extends javax.swing.JFrame {
     }
 
     public static void UpdateIP() {
-        new Thread(new Runnable() {
-            public void run() {
-                try {
-                    FromUI(new Runnable() {
-                        public void run() {
-                            mainForm.jLabel16.setText("Fetching IP Address...");
-                        }
-                    });
-                    String ip = ReadPage("http://api.ipify.org");
-                    FromUI(new Runnable() {
-                        public void run() {
-                            if (ip != null && ip.length() <= 18) {
-                                mainForm.jLabel16.setText("IP: " + ip.trim());
-                            } else {
-                                mainForm.jLabel16.setText("Failed fetching IP Address.");
-                            }
-                        }
-                    });
-                } catch (Exception ex) {
-
-                }
-            }
-        }).start();
+//        new Thread(new Runnable() {
+//            public void run() {
+//                try {
+//                    FromUI(new Runnable() {
+//                        public void run() {
+//                            // mainForm.jLabel16.setText("Fetching IP Address...");
+//                        }
+//                    });
+//                    String ip = ReadPage("http://api.ipify.org");
+//                    FromUI(new Runnable() {
+//                        public void run() {
+//                            if (ip != null && ip.length() <= 18) {
+//                                // mainForm.jLabel16.setText("IP: " + ip.trim());
+//                            } else {
+//                                // mainForm.jLabel16.setText("Failed fetching IP Address.");
+//                            }
+//                        }
+//                    });
+//                } catch (Exception ex) {
+//
+//                }
+//            }
+//        }).start();
     }
 
     public static String ReadPage(String surl) {
@@ -982,7 +978,6 @@ public class MainForm extends javax.swing.JFrame {
     }
 
     private static void appendToPane(JTextPane tp, String msg, Color c) {
-
         StyleContext sc = StyleContext.getDefaultStyleContext();
         AttributeSet aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.Foreground, c);
 
@@ -1008,7 +1003,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1022,6 +1016,8 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
